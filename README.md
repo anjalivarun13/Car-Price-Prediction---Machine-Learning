@@ -126,7 +126,7 @@ The Flask app provides an interactive UI for predicting car prices.
 
 **Output:**
 
-    Predicted Price: ₹507857.73 (approx.)
+    Predicted Price: ₹507857.74
 
 ---
 
