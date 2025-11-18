@@ -1,10 +1,10 @@
+
 # 🚗 Car Price Prediction Model
 
 This project predicts the price of used cars using **Machine Learning (Linear Regression)** and includes a user-friendly **Flask web application** for real-time predictions.
 
 The model is saved and loaded using **pickle**.
 
----
 
 ## 🖼️ Website Preview
 
@@ -15,8 +15,6 @@ The model is saved and loaded using **pickle**.
 ![Website After](images/after.png)
 
 *(Replace the above paths with your actual screenshot locations.)*
-
----
 
 ## 📊 Dataset Overview
 
@@ -70,71 +68,75 @@ The dataset had several inconsistencies. Below are the preprocessing steps:
 
 ## 🖥️ Project Structure
 
-   ├── static/
-   ├── templates/
-   │ ├── index.html
-   ├── model/
-   │ ├── car_price_model.pkl
-   ├── data.csv
-   ├── app.py
-   ├── README.md
-   └── requirements.txt
+
+        ├── static/
+        | ├── style.css
+        ├── templates/
+        │ ├── index.html
+        │── LinearRegressionModel.pkl
+        │── Car Analysis.ipynb
+        ├── car.csv
+        ├── Cleaned_Car_data.csv
+        ├── application.py
+        ├── README.md
+        └── requirements.txt
 
 ---
-
 ## 🚀 Flask Web Application
 
 The Flask app provides an interactive UI for predicting car prices.
 
 ### How It Works:
-- 1. User enters car details  
-- 2. Flask processes the form  
-- 3. Pickle model predicts price  
-- 4. Output is displayed on the webpage  
+    1. User enters car details  
+    2. Flask processes the form  
+    3. Pickle model predicts price  
+    4. Output is displayed on the webpage  
 
 ### ▶ Run the Application
 
-  python app.py
+    python app.py
 
-- Open browser and go to:
+   Open browser and go to:
 
-  http://127.0.0.1:5000
-
----
-
-## 📦 Installation
-
-1. Clone the repository:
+    http://127.0.0.1:5000
 
 ---
 
 ## 📦 Installation
+    1.Clone the repository:
 
-1. Clone the repository:
+        git clone https://github.com/your-username/car-price-prediction.git
+        cd car-price-prediction
 
-  git clone https://github.com/your-username/car-price-prediction.git
-  cd car-price-prediction
+    2.Install dependencies:
 
-2. Install dependencies:
+        pip install -r requirements.txt
 
-  pip install -r requirements.txt
+    3.Launch Flask app:
 
-3. Launch Flask app:
-
-  python application.py
+        python application.py
 
 ---
 
 ## 🧪 Example Prediction Input
 
-- Company: Maruti
-- Car Name: Maruti Suzuki Swift
-- Year: 2019
-- Kms Driven: 100
-- Fuel Type: Petrol
+    Company: Maruti
+    Car Name: Maruti Suzuki Swift
+    Year: 2019
+    Kms Driven: 100
+    Fuel Type: Petrol
 
 **Output:**
 
-- Predicted Price: ₹507857.73 (approx.)
+    Predicted Price: ₹507857.73 (approx.)
 
 ---
+
+## ✅ Conclusion
+
+This project successfully demonstrates how machine learning can be applied to predict car prices using real-world data. By combining a trained model with a simple Flask-based web interface, users can instantly estimate the resale value of a car. The system is lightweight, fast, and serves as a practical example of end-to-end ML deployment
+
+## 👩‍💻 Author
+**Anjali Varun**  
+
+🔗 [LinkedIn](https://www.linkedin.com/in/anjali-varun-91713b381/) | [GitHub](https://github.com/anjalivarun13) 
