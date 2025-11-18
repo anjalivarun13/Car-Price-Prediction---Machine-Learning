@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Car Price Predictor</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+  <!-- Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="container card shadow-lg p-4">
+      <div class="text-center mb-4">
+        <i class="fa-solid fa-car-side fa-3x mb-3 text-primary"></i>
+        <h1 class="fw-bold">Car Price Predictor</h1>
+        <p class="text-muted">Estimate the price of your car based on details below 🚗</p>
+      </div>
+
+      <!-- Form Section -->
+      <form method="post" name="Modelform" onsubmit="send_data(); return false;">
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Select Company</label>
+          <select class="form-select" id="company" name="company" onchange="load_car_models(this.id,'car_models')">
+            {% for company in companies %}
+            <option value="{{ company }}">{{ company }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Select Model</label>
+          <select class="form-select" id="car_models" name="car_models"></select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Select Year of Purchase</label>
+          <select class="form-select" id="year" name="year">
+            {% for year in years %}
+            <option value="{{ year }}">{{ year }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Select Fuel Type</label>
+          <select class="form-select" id="fuel_type" name="fuel_type">
+            {% for fuel in fuel_types %}
+            <option value="{{ fuel }}">{{ fuel }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label fw-semibold">Enter Kilometres Driven</label>
+          <input type="number" class="form-control" id="kilo_driven" name="kilo_driven"
+            placeholder="e.g., 25000" required>
+        </div>
+
+        <div class="d-grid">
+          <button class="btn btn-primary btn-lg" type="submit">
+            <i class="fa-solid fa-calculator"></i> Predict Price
+          </button>
+        </div>
+      </form>
+
+      <!-- Prediction Result -->
+      <div id="prediction" class="text-center mt-4 fs-5 fw-semibold text-success"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 text-light small">
+      Developed by <b>Anjali Varun</b> 
+    </footer>
+  </div>
+
+  <!-- JavaScript -->
+  <script>
+    function load_car_models(company_id, car_model_id) {
+      var company = document.getElementById(company_id);
+      var car_model = document.getElementById(car_model_id);
+      car_model.innerHTML = "";
+      {% for company in companies %}
+      if (company.value == "{{ company }}") {
+        {% for model in car_models %}
+        {% if company in model %}
+        var newOption = document.createElement("option");
+        newOption.value = "{{ model }}";
+        newOption.innerHTML = "{{ model }}";
+        car_model.options.add(newOption);
+        {% endif %}
+        {% endfor %}
+      }
+      {% endfor %}
+    }
+
+    function send_data() {
+      var fd = new FormData(document.querySelector('form'));
+      var xhr = new XMLHttpRequest();
+      document.getElementById('prediction').innerHTML = "<span class='text-warning'>⏳ Predicting Price...</span>";
+
+      xhr.open('POST', '/predict', true);
+      xhr.onreadystatechange = function () {
+        if (xhr.readyState == XMLHttpRequest.DONE) {
+          document.getElementById('prediction').innerHTML = " Estimated Price: ₹" + xhr.responseText;
+        }
+      };
+      xhr.send(fd);
+    }
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
