@@ -70,15 +70,15 @@ The dataset had several inconsistencies. Below are the preprocessing steps:
 
 ## 🖥️ Project Structure
 
-├── static/
-├── templates/
-│ ├── index.html
-├── model/
-│ ├── car_price_model.pkl
-├── data.csv
-├── app.py
-├── README.md
-└── requirements.txt
+   ├── static/
+   ├── templates/
+   │ ├── index.html
+   ├── model/
+   │ ├── car_price_model.pkl
+   ├── data.csv
+   ├── app.py
+   ├── README.md
+   └── requirements.txt
 
 ---
 
@@ -87,24 +87,18 @@ The dataset had several inconsistencies. Below are the preprocessing steps:
 The Flask app provides an interactive UI for predicting car prices.
 
 ### How It Works:
-1. User enters car details  
-2. Flask processes the form  
-3. Pickle model predicts price  
-4. Output is displayed on the webpage  
+- 1. User enters car details  
+- 2. Flask processes the form  
+- 3. Pickle model predicts price  
+- 4. Output is displayed on the webpage  
 
 ### ▶ Run the Application
 
-python app.py
+  python app.py
 
-Open browser and go to:
+- Open browser and go to:
 
-http://127.0.0.1:5000
-
----
-
-## 📦 Installation
-
-1. Clone the repository:
+  http://127.0.0.1:5000
 
 ---
 
@@ -112,29 +106,35 @@ http://127.0.0.1:5000
 
 1. Clone the repository:
 
-git clone https://github.com/your-username/car-price-prediction.git
-cd car-price-prediction
+---
+
+## 📦 Installation
+
+1. Clone the repository:
+
+  git clone https://github.com/your-username/car-price-prediction.git
+  cd car-price-prediction
 
 2. Install dependencies:
 
-pip install -r requirements.txt
+  pip install -r requirements.txt
 
 3. Launch Flask app:
 
-python application.py
+  python application.py
 
 ---
 
 ## 🧪 Example Prediction Input
 
-Company: Maruti
-Car Name: Maruti Suzuki Swift
-Year: 2019
-Kms Driven: 100
-Fuel Type: Petrol
+- Company: Maruti
+- Car Name: Maruti Suzuki Swift
+- Year: 2019
+- Kms Driven: 100
+- Fuel Type: Petrol
 
 **Output:**
 
-Predicted Price: ₹507857.73 (approx.)
+- Predicted Price: ₹507857.73 (approx.)
 
 ---
