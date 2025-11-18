@@ -8,13 +8,11 @@ The model is saved and loaded using **pickle**.
 
 ## 🖼️ Website Preview
 
-### **Before**
-![Website Before](images/before.png)
+### **Before Prediction**
+![Website Before](https://github.com/anjalivarun13/Car-Price-Prediction---Machine-Learning/blob/main/Car%20price.png)
 
-### **After**
-![Website After](images/after.png)
-
-*(Replace the above paths with your actual screenshot locations.)*
+### **After Prediction**
+![Website After](https://github.com/anjalivarun13/Car-Price-Prediction---Machine-Learning/blob/main/Predicting%20Price.png)
 
 ## 📊 Dataset Overview
 
